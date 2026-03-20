@@ -34,7 +34,7 @@ export const Experience = () => {
                     viewport={{ once: true }}
                     className="mb-16 border-b-2 border-white pb-6"
                 >
-                    <h2 className="text-[60px] md:text-[100px] leading-[0.9] font-display text-white uppercase tracking-tighter">
+                    <h2 className="text-[40px] sm:text-[50px] md:text-[100px] leading-[0.9] font-display text-white uppercase tracking-tighter">
                         EXPERIENCE <br />
                         <span className="hero-text-stroke">TIMELINE</span>
                     </h2>

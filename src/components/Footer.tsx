@@ -15,9 +15,9 @@ export const Footer = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <SocialLink href="https://github.com" icon={<Github size={28} />} />
-                    <SocialLink href="https://linkedin.com" icon={<Linkedin size={28} />} />
-                    <SocialLink href="mailto:contact@aswinak.com" icon={<Mail size={28} />} />
+                    <SocialLink href="https://github.com/aswinak799/" icon={<Github size={28} />} />
+                    <SocialLink href="https://www.linkedin.com/in/odoo-wizard-120888234/" icon={<Linkedin size={28} />} />
+                    <SocialLink href="mailto:aswinak799@gmail.com" icon={<Mail size={28} />} />
                     <SocialLink href="https://twitter.com" icon={<Twitter size={28} />} />
                 </div>
             </div>

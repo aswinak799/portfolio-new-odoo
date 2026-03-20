@@ -4,17 +4,37 @@ import { Send, MapPin, Mail, Github, Linkedin, TerminalSquare } from 'lucide-rea
 
 export const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitting(true);
-        // Simulate API call
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setFormData({ name: '', email: '', message: '' });
-            alert("TRANSMISSION SUCCESSFUL.");
-        }, 1500);
+        setFormStatus('submitting');
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+                    ...formData
+                }),
+            });
+            const result = await res.json();
+            if (result.success) {
+                setFormStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+                setTimeout(() => setFormStatus('idle'), 5000);
+            } else {
+                setFormStatus('error');
+                setTimeout(() => setFormStatus('idle'), 5000);
+            }
+        } catch (error) {
+            setFormStatus('error');
+            setTimeout(() => setFormStatus('idle'), 5000);
+        }
     };
 
     return (
@@ -28,7 +48,7 @@ export const Contact = () => {
                         viewport={{ once: true }}
                         className="w-full md:w-5/12 text-black"
                     >
-                        <h2 className="text-[60px] md:text-[80px] leading-[0.9] font-display uppercase tracking-tighter mb-8 break-words">
+                        <h2 className="text-[40px] sm:text-[50px] md:text-[80px] leading-[0.9] font-display uppercase tracking-tighter mb-8 break-words">
                             INITIATE <br />
                             <span className="text-black underline decoration-8 decoration-accent">CONTACT.</span>
                         </h2>
@@ -43,7 +63,7 @@ export const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-black font-bold mb-1">EMAIL</h4>
-                                    <a href="mailto:contact@aswinak.com" className="text-muted hover:text-black transition-colors">CONTACT@ASWINAK.COM</a>
+                                    <a href="mailto:aswinak799@gmail.com" className="text-muted hover:text-black transition-colors">ASWINAK799@GMAIL.COM</a>
                                 </div>
                             </div>
 
@@ -59,8 +79,8 @@ export const Contact = () => {
                         </div>
 
                         <div className="mt-16 pt-8 border-t-4 border-black flex gap-6">
-                            <SocialIcon href="https://github.com" icon={<Github size={28} />} />
-                            <SocialIcon href="https://linkedin.com" icon={<Linkedin size={28} />} />
+                            <SocialIcon href="https://github.com/aswinak799/" icon={<Github size={28} />} />
+                            <SocialIcon href="https://www.linkedin.com/in/odoo-wizard-120888234/" icon={<Linkedin size={28} />} />
                         </div>
                     </motion.div>
 
@@ -115,11 +135,20 @@ export const Contact = () => {
 
                                 <button
                                     type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full brutal-button !bg-accent !text-black !py-6 hover:!bg-white disabled:opacity-50"
+                                    disabled={formStatus === 'submitting'}
+                                    className={`w-full brutal-button !py-6 transition-all duration-300 ${formStatus === 'success'
+                                            ? '!bg-black !text-accent hover:!bg-black border-2 border-accent'
+                                            : formStatus === 'error'
+                                                ? '!bg-red-600 !text-white hover:!bg-red-700'
+                                                : '!bg-accent !text-black hover:!bg-white disabled:opacity-50'
+                                        }`}
                                 >
-                                    {isSubmitting ? (
+                                    {formStatus === 'submitting' ? (
                                         "PROCESSING..."
+                                    ) : formStatus === 'success' ? (
+                                        "TRANSMISSION SUCCESSFUL"
+                                    ) : formStatus === 'error' ? (
+                                        "ERROR: RETRY TRANSMISSION"
                                     ) : (
                                         <>
                                             EXECUTE TRANSMISSION

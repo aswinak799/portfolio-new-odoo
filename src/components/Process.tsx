@@ -32,7 +32,7 @@ export const Process = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[60px] md:text-[100px] leading-[0.9] font-display text-white uppercase tracking-tighter"
+                        className="text-[40px] sm:text-[50px] md:text-[100px] leading-[0.9] font-display text-white uppercase tracking-tighter"
                     >
                         DEVELOPER <br />
                         <span className="hero-text-stroke">MINDSET</span>

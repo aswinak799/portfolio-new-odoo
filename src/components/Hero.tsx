@@ -1,14 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+// import profile from '../assets/ak1.jpeg';
+import profile from '../assets/ak2.jpeg';
 
 export const Hero = () => {
     return (
-        <section id="hero" className="relative h-screen w-full bg-[#0f0f0f] overflow-hidden flex flex-col justify-center border-b-2 border-white">
+        <section id="hero" className="relative min-h-screen py-24 w-full bg-[#0f0f0f] overflow-hidden flex flex-col justify-center border-b-2 border-white">
 
             {/* Background Marquee */}
             <div className="absolute top-1/4 left-0 w-full overflow-hidden whitespace-nowrap opacity-20 rotate-[-2deg] z-0 pointer-events-none">
-                <div className="animate-marquee inline-block font-display text-[150px] md:text-[200px] text-white uppercase tracking-tighter mix-blend-difference">
+                <div className="animate-marquee inline-block font-display text-[80px] sm:text-[100px] md:text-[200px] text-white uppercase tracking-tighter mix-blend-difference">
                     ODOO ARCHITECT • SYSTEM BUILDER • ERP MASTER MIND • ODOO ARCHITECT • SYSTEM BUILDER •
                 </div>
             </div>
@@ -27,15 +29,22 @@ export const Hero = () => {
                         </div>
                     </div>
 
-                    <div className="md:col-span-12">
-                        <h1 className="text-[60px] md:text-[120px] lg:text-[180px] font-display leading-[0.8] tracking-tighter text-white uppercase break-words mix-blend-difference">
+                    <div className="md:col-span-12 flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+                        <h1 className="flex-1 text-[50px] sm:text-[70px] md:text-[120px] lg:text-[160px] font-display leading-[0.85] tracking-tighter text-white uppercase break-words mix-blend-difference">
                             I BUILD <br />
                             <span className="hero-text-stroke transition-colors duration-500">SMART</span> ERP <br />
                             SYSTEMS.
                         </h1>
+                        <div className="w-full sm:w-64 sm:h-64 lg:w-96 lg:h-96 shrink-0 border-4 border-white brutal-card p-0 pointer-events-auto overflow-hidden group">
+                            <img
+                                src={profile}
+                                alt="Aswin A K Profile"
+                                className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+                            />
+                        </div>
                     </div>
 
-                    <div className="md:col-span-8 md:col-start-5 mt-12 border-t-2 border-white pt-6">
+                    <div className="md:col-span-12 lg:col-span-8 lg:col-start-5 mt-12 border-t-2 border-white pt-6">
                         <p className="font-body text-xl md:text-3xl font-light text-foreground max-w-2xl leading-tight">
                             I transform complex business workflows into automated, high-performance solutions capable of scaling globally. No fluff, just architecture that works.
                         </p>
@@ -61,8 +70,8 @@ export const Hero = () => {
             </div>
 
             {/* Brutalist Grid Decorators */}
-            <div className="absolute top-0 right-0 w-32 h-32 border-b-2 border-l-2 border-white z-0 pointer-events-none opacity-50"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 border-t-2 border-r-2 border-white z-0 pointer-events-none opacity-50"></div>
+            <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 border-b-2 border-l-2 border-white z-0 pointer-events-none opacity-50"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-32 md:h-32 border-t-2 border-r-2 border-white z-0 pointer-events-none opacity-50"></div>
 
         </section>
     );

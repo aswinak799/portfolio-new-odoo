@@ -48,7 +48,7 @@ export const Projects = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[60px] md:text-[80px] leading-[0.9] font-display text-white uppercase tracking-tighter"
+                        className="text-[40px] sm:text-[50px] md:text-[80px] leading-[0.9] font-display text-white uppercase tracking-tighter"
                     >
                         DEPLOYED <br />
                         <span className="hero-text-stroke">SYSTEMS</span>

@@ -1,13 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe, Lightbulb, Clock, Code2 } from 'lucide-react';
+// import about from '../assets/ak2.jpeg';
+import about from '../assets/ak1.jpeg';
 
 export const About = () => {
     return (
         <section id="about" className="py-24 relative bg-[#0f0f0f] border-b-2 border-white">
             {/* Brutalist Warning Tape */}
-            <div className="absolute top-0 left-0 w-full overflow-hidden bg-accent border-b-2 border-white py-2 z-10 pointer-events-none">
-                <div className="animate-marquee inline-block font-display text-2xl text-black uppercase tracking-widest whitespace-nowrap">
+            <div className="absolute top-0 left-0 w-full overflow-hidden bg-accent border-b-2 border-white py-2 z-10 pointer-events-none text-center">
+                <div className="animate-marquee inline-block font-display text-lg sm:text-2xl text-black uppercase tracking-widest whitespace-nowrap">
                     WARNING: HIGH PERFORMANCE ARCHITECTURE • WARNING: HIGH PERFORMANCE ARCHITECTURE • WARNING: HIGH PERFORMANCE ARCHITECTURE •
                 </div>
             </div>
@@ -22,14 +24,22 @@ export const About = () => {
                         transition={{ duration: 0.6 }}
                         className="w-full lg:w-1/2"
                     >
-                        <h2 className="text-[60px] md:text-[80px] leading-[0.9] font-display text-white uppercase mb-8 break-words">
+                        <div className="w-full mb-8 brutal-card p-0 border-4 border-white aspect-video md:aspect-[3/1] lg:aspect-video overflow-hidden group">
+                            <img
+                                src={about}
+                                alt="Working at desk"
+                                className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700"
+                            />
+                        </div>
+
+                        <h2 className="text-[40px] sm:text-[50px] md:text-[80px] leading-[0.9] font-display text-white uppercase mb-8 break-words">
                             ENGINEERING <br />
                             <span className="text-accent">EFFICIENCY</span>.<br />
                             DELIVERING <br />
                             <span className="hero-text-stroke">SCALE</span>.
                         </h2>
 
-                        <div className="space-y-6 text-foreground text-xl font-body leading-tight max-w-lg">
+                        <div className="space-y-6 text-foreground text-lg sm:text-xl font-body leading-tight max-w-lg">
                             <p>
                                 As a specialized Odoo Developer with an architectural mindset, I bridge the gap between complex business processes and brutal digital solutions.
                             </p>
@@ -39,12 +49,12 @@ export const About = () => {
 
                             <div className="mt-12 grid grid-cols-2 gap-4 border-2 border-white p-6 bg-white text-black">
                                 <div>
-                                    <div className="text-5xl font-display uppercase tracking-tighter">2+ YRS</div>
-                                    <div className="text-sm font-bold uppercase tracking-widest mt-2">EXPERIENCE</div>
+                                    <div className="text-4xl sm:text-5xl font-display uppercase tracking-tighter">2+ YRS</div>
+                                    <div className="text-xs sm:text-sm font-bold uppercase tracking-widest mt-2">EXPERIENCE</div>
                                 </div>
                                 <div className="border-l-2 border-black pl-4">
-                                    <div className="text-5xl font-display uppercase tracking-tighter">40%</div>
-                                    <div className="text-sm font-bold uppercase tracking-widest mt-2">EFFICIENCY GAIN</div>
+                                    <div className="text-4xl sm:text-5xl font-display uppercase tracking-tighter">40%</div>
+                                    <div className="text-xs sm:text-sm font-bold uppercase tracking-widest mt-2">EFFICIENCY GAIN</div>
                                 </div>
                             </div>
                         </div>
@@ -101,14 +111,14 @@ const FeatureCard = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay }}
-        className={`brutal-card group flex flex-col justify-between min-h-[250px] ${className}`}
+        className={`brutal-card group flex flex-col justify-between min-h-[250px] ${className} p-6 sm:p-8`}
     >
         <div className="mb-6 group-hover:scale-110 transition-transform duration-300 origin-left">
             {icon}
         </div>
         <div>
-            <h3 className="text-2xl font-display text-white uppercase mb-4 tracking-wider group-hover:text-black transition-colors">{title}</h3>
-            <p className="text-foreground font-body leading-tight group-hover:text-black transition-colors">{desc}</p>
+            <h3 className="text-xl sm:text-2xl font-display text-white uppercase mb-4 tracking-wider group-hover:text-black transition-colors">{title}</h3>
+            <p className="text-sm sm:text-base text-foreground font-body leading-tight group-hover:text-black transition-colors">{desc}</p>
         </div>
     </motion.div>
 );
