@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-body antialiased overflow-x-hidden;
+    background-color: #0f0f0f;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-white uppercase tracking-tight;
+  }
+}
+
+@layer components {
+
+  /* Brutalist utilities */
+  .brutal-border {
+    @apply border-2 border-white;
+  }
+
+  .brutal-card {
+    @apply bg-[#0f0f0f] border-2 border-white p-6 shadow-[8px_8px_0px_0px_#ccff00] hover:shadow-[12px_12px_0px_0px_#ccff00] transition-all hover:-translate-y-1 hover:-translate-x-1;
+  }
+
+  .brutal-button {
+    @apply bg-white text-black font-display text-2xl uppercase px-8 py-3 border-2 border-transparent hover:bg-accent hover:border-white transition-colors flex items-center justify-center gap-2;
+  }
+
+  .brutal-button-outline {
+    @apply bg-transparent text-white font-display text-2xl uppercase px-8 py-3 border-2 border-white hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2;
+  }
+
+  .hero-text-stroke {
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+  }
+
+  .hero-text-stroke:hover {
+    color: #ccff00;
+    -webkit-text-stroke: 2px #ccff00;
+  }
+}
+
+/* Custom Scrollbar - Brutalist style */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+  border-left: 2px solid #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccff00;
+  border: 2px solid #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aacc00;
+}
